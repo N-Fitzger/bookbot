@@ -7,10 +7,20 @@ def get_book_text(file_path):
 
 
 def main():
-	word_arr = get_book_text("books/frankenstein.txt")
+	book_dir = "books/frankenstein.txt"
+	word_arr = get_book_text(book_dir)
 	num_words = get_word_count(word_arr)
 	letters = get_letter_counts(word_arr)
-	print(f"{num_words} words found in the document")
-	print(letters)
-
+	
+	print("============ BOOKBOT ============")
+	print(f"Analyzing book found at {book_dir}")
+	print("---------- Word count -----------")
+	print(f"Found {num_words} total words")
+	print("-------- Character Count --------")
+	for list in letters:
+		letter = list[0]
+		number = list[1]
+		if letter.isalpha():
+			print(f"{letter}: {number}")
+	print("============== END ===============")
 main()
