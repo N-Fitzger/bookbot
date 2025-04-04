@@ -1,3 +1,4 @@
+import sys
 from stats import get_word_count, get_letter_counts
 
 def get_book_text(file_path):
@@ -7,7 +8,12 @@ def get_book_text(file_path):
 
 
 def main():
-	book_dir = "books/frankenstein.txt"
+	
+	try:
+		book_dir = sys.argv[1]
+	except Exception as e:
+		print("Usage: python3 main.py <path_to_book>")
+		sys.exit(1)
 	word_arr = get_book_text(book_dir)
 	num_words = get_word_count(word_arr)
 	letters = get_letter_counts(word_arr)
